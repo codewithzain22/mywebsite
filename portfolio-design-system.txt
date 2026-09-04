@@ -1,0 +1,90 @@
+PORTFOLIO WEBSITE - DESIGN SYSTEM SPECIFICATIONS
+(Home / Skills / About Us / Contact Us / FAQs)
+==================================================
+
+COLOR PALETTE
+--------------------------------------------------
+Primary            #0F172A   Deep Slate Navy — major UI grounding, dark sections
+Secondary          #1E293B   Slate — secondary surfaces, section alternation
+Accent             #38BDF8   Sky Blue — CTAs, links, highlights, active states
+Background         #0B1120   Near-Black Navy — main page background
+Surface / Card      #161F2E   Cards, panels, form containers, elevated blocks
+Text - Primary      #F1F5F9   Off-White — headings, primary body copy
+Text - Secondary    #94A3B8   Muted Slate Gray — supporting text, captions, labels
+Border              #293548   Dividers, card outlines, input borders
+Hover / Accent Alt  #0EA5E9   Button hover states, link hover states
+
+--------------------------------------------------
+TYPOGRAPHY - FONT FAMILY
+--------------------------------------------------
+Heading Font   : Bricolage Grotesque (Google Font)
+Body Font      : Inter (Google Font)
+Navigation Font: Inter
+Button Font    : Inter
+
+--------------------------------------------------
+TYPOGRAPHY - FONT WEIGHTS
+--------------------------------------------------
+Body text            : 400
+Navigation / Buttons  : 500
+Subheadings (H3)      : 600
+Headings (H1 / H2)    : 700 - 800
+
+--------------------------------------------------
+TYPOGRAPHY - FONT SIZES & LINE HEIGHTS
+--------------------------------------------------
+H1            : 56px  (Home hero) / 48px (other page intros)   | line-height 1.1
+H2            : 40px                                            | line-height 1.2
+H3            : 28px  (section headings) / 20-22px (card titles)| line-height 1.3
+Body          : 16px                                             | line-height 1.6 (1.7 for narrative/About)
+Small Text    : 14px                                             | line-height 1.5
+Micro Labels  : 13px  (eyebrow tags, captions, uppercase labels) | line-height 1.4
+
+--------------------------------------------------
+SPACING SYSTEM (8px base scale)
+--------------------------------------------------
+Section spacing (vertical)   : 120px
+Container padding (horizontal): 80px
+Grid gaps                     : 32px
+Card padding                  : 28-32px (form cards: 40px)
+Element spacing                : 16px / 24px
+Navigation item spacing         : 40px
+
+--------------------------------------------------
+LAYOUT SYSTEM
+--------------------------------------------------
+Primary Figma Frame  : 1440 x 1024px
+Secondary Reference   : 1920 x 1080px
+Max Content Width     : 1280px (centered)
+Grid                   : 12-column, 32px gutters
+Header Height          : 88px
+Page Margins            : 80px each side
+
+--------------------------------------------------
+UI STYLE - RADIUS, SHADOW, BORDERS
+--------------------------------------------------
+Card Border Radius    : 12px
+Chip / Input Radius    : 8px
+Button Radius           : 6px
+Category Pill Radius    : 999px (full pill)
+Border Width & Color    : 1px, #293548
+Shadow (cards/forms)     : 0 4px 24px rgba(0,0,0,0.25)
+
+--------------------------------------------------
+BUTTON STYLES
+--------------------------------------------------
+Primary Button  : Fill #38BDF8, Text #0B1120 (weight 600), Height 48px, Radius 6px, Hover fill #0EA5E9
+Secondary/Ghost : Transparent fill, 1px border #293548, Text #F1F5F9, Hover border becomes #38BDF8
+
+--------------------------------------------------
+INPUT FIELDS (Contact Form)
+--------------------------------------------------
+Height        : 48px (Textarea: 140px)
+Background     : #0B1120
+Border          : 1px #293548 (Focus state: #38BDF8)
+Text            : 15px/400, #F1F5F9
+Placeholder      : #94A3B8
+Radius            : 8px
+
+==================================================
+END OF DESIGN SYSTEM SPECIFICATIONS

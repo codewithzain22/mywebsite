@@ -1,0 +1,161 @@
+PORTFOLIO WEBSITE - ALL PAGE COPY / TEXT CONTENT
+(Placeholder content - replace bracketed items with real info)
+==================================================
+
+SHARED / GLOBAL (appears on every page)
+--------------------------------------------------
+Logo/Brand      : [YOUR NAME].
+Header Nav      : Home | Skills | About Us | Contact Us | FAQs
+Header CTA      : Let's Talk
+Footer Tagline  : (short one-line tagline under brand name)
+Footer Nav      : Home | Skills | About | Contact | FAQs
+Footer Socials  : LinkedIn | GitHub | Twitter/X
+Footer Bottom   : © [Year] [YOUR NAME]. All rights reserved.
+
+==================================================
+PAGE 1: HOME
+--------------------------------------------------
+Eyebrow Label     : [YOUR PROFESSION]
+H1 Heading        : [YOUR NAME] / "Building clean, functional web experiences."
+Supporting Text   : (2-line intro paragraph about who you are and what you do)
+Primary CTA       : View My Work
+Secondary CTA     : Download Resume
+
+Skills Strip      : React | TypeScript | CSS3 | Figma | Node.js (icon + label each)
+
+Section - Selected Work
+  Heading         : Selected Work
+  Link            : View All Projects →
+  Card (x3)       : [Project Name] | short description | tech tags | View Project →
+
+Section - About Teaser
+  Body            : (3-4 line paragraph on background/philosophy)
+  Stat Block      : e.g. "2+ Years" / "15+ Projects"
+  Link            : More About Me →
+
+Section - Contact CTA Band
+  Heading         : Let's build something great.
+  Supporting Text : (short line inviting contact)
+  CTA             : Get In Touch
+
+==================================================
+PAGE 2: SKILLS
+--------------------------------------------------
+Eyebrow Label     : WHAT I DO
+H1 Heading        : Skills & Expertise
+Supporting Text   : (1-2 line intro on skillset)
+
+Category Overview Cards (6):
+  1. Front-End Development — short one-line description — "6 Skills"
+  2. WordPress — short one-line description — skill count
+  3. UI/UX Design — short one-line description — skill count
+  4. SEO — short one-line description — skill count
+  5. Digital Marketing — short one-line description — skill count
+  6. Other Tools — short one-line description — skill count
+
+Detailed Skill Chips: (per category, e.g. under Front-End Development)
+  HTML5, CSS3, JavaScript, React, TypeScript, Tailwind CSS (example set — customize per category)
+
+Tools & Workflow Row: Git, Figma, VS Code, GitHub, npm, Supabase (icon + label each)
+
+Closing CTA
+  Heading         : Want to see these skills in action?
+  Link            : View My Work →
+
+==================================================
+PAGE 3: ABOUT US
+--------------------------------------------------
+Eyebrow Label     : ABOUT ME
+H1 Heading        : Get to Know Me / [YOUR NAME]
+Supporting Text   : (2-3 line warm personal opening statement)
+Link              : Let's Connect →
+
+Section - My Story
+  Heading         : My Story
+  Body            : (2-3 paragraphs — personal/professional narrative)
+  Pull Quote      : (one highlighted line reflecting philosophy or motivation)
+
+Section - Experience Timeline (repeat per entry)
+  Date Range      : [Month Year] - [Month Year / Present]
+  Role/Title      : [Job Title / Project Role]
+  Organization    : [Company / Context]
+  Description     : (short 1-2 line description of the role)
+
+Section - Education (repeat per entry)
+  Institution     : [Institution Name]
+  Degree/Program  : [Degree or Program Name]
+  Date Range      : [Start Year] - [End Year]
+
+Section - Values (3 cards)
+  1. Clean Code — one-line description
+  2. User-First Thinking — one-line description
+  3. Continuous Learning — one-line description
+
+Section - Personal Stats (4 stat blocks)
+  e.g. "2+ Years Experience" | "15+ Projects" | "10+ Happy Clients" | "5+ Technologies"
+
+Section - Closing CTA
+  Heading         : Let's work together.
+  Supporting Text : (short line)
+  CTA             : Get In Touch
+
+==================================================
+PAGE 4: CONTACT US
+--------------------------------------------------
+Eyebrow Label     : GET IN TOUCH
+H1 Heading        : Let's Start a Conversation
+Supporting Text   : (1-2 line intro inviting contact)
+
+Contact Info Column
+  Heading         : Contact Information
+  Email           : [YOUR EMAIL]
+  Phone           : [YOUR PHONE]
+  Location        : [YOUR LOCATION]
+  Social Label    : Follow Me
+
+Contact Form Column
+  Heading         : Send a Message
+  Field Labels    : Name | Email | Subject | Message
+  Submit Button   : Send Message
+
+==================================================
+PAGE 5: FAQs
+--------------------------------------------------
+Eyebrow Label     : GOT QUESTIONS?
+H1 Heading        : Frequently Asked Questions
+Supporting Text   : (1-2 line intro)
+
+Category Pills    : General | Working Process | Pricing | Technical
+
+FAQ Items (examples - customize per your services)
+  General:
+    Q: What services do you offer?
+    A: (your answer)
+    Q: What technologies do you work with?
+    A: (your answer)
+
+  Working Process:
+    Q: What does your typical project process look like?
+    A: (your answer)
+    Q: How long does a typical project take?
+    A: (your answer)
+
+  Pricing:
+    Q: How do you price your projects?
+    A: (your answer)
+    Q: Do you require a deposit?
+    A: (your answer)
+
+  Technical:
+    Q: Do you build responsive websites?
+    A: (your answer)
+    Q: Can you work with an existing codebase?
+    A: (your answer)
+
+Closing CTA
+  Heading         : Still have questions?
+  Supporting Text : (short line)
+  CTA             : Contact Me
+
+==================================================
+END OF WEBSITE COPY
