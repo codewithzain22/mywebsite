@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- This line makes the site responsive: the page width follows the phone's screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Muhammad Zain - web developer building clean, functional web experiences." />
+    <title>Code With Zain</title>
+
+    <!-- Google font (same font as before) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+        rel="stylesheet" />
+
+    <!-- One shared stylesheet. The path has NO leading "/" so it also works when you open the file from your computer. -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- "defer" = load the script without blocking the page; it runs after the HTML is ready -->
+    <script src="script.js" defer></script>
+</head>
+
+<!-- data-page tells script.js which page this is (used to highlight the right nav link) -->
+<body data-page="home">
+
+    <!-- ===================== HEADER / NAVIGATION ===================== -->
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main">
+            <a class="brand" href="index.html">Code With Zain</a>
+
+            <!-- Hamburger button: only visible on phones (see style.css) -->
+            <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"
+                aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" data-page="home">Home</a></li>
+                <li><a href="about-us.html" data-page="about">About Us</a></li>
+                <li><a href="contact-us.html" data-page="contact">Contact Us</a></li>
+                <li><a class="btn" href="contact-us.html">Lets Talk →</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===================== HERO ===================== -->
+        <section class="hero container">
+            <div class="hero-content">
+                <p class="eyebrow">Web Developer</p>
+                <h1>
+                    Muhammad Zain "Building <br class="desktop-br" />
+                    clean, functional <br class="desktop-br" />
+                    web experiences."
+                </h1>
+                <p>(2-line intro paragraph about who you are and what you do)</p>
+                <!-- href="#projects" scrolls down to the section with id="projects" -->
+                <a class="btn" href="#projects">View My Work →</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="IMG-20260512-WA0033.jpg" alt="Portrait of Muhammad Zain" width="960" height="1280" />
+            </div>
+        </section>
+
+        <div class="container"><hr /></div>
+
+        <!-- ===================== SKILLS ===================== -->
+        <section class="container" aria-label="Skills">
+            <ul class="skills">
+                <li>Html</li>
+                <li>Css</li>
+                <li>JavaScript</li>
+                <li>Git Hub</li>
+            </ul>
+        </section>
+
+        <div class="container"><hr /></div>
+
+        <!-- ===================== PROJECTS (5 cards) =====================
+             script.js uses these cards for two things:
+               1. the slide-in effect when you scroll
+               2. the pop-up image viewer (lightbox) when you click a card
+             To add or edit a project, copy one <article> block and change
+             the image, title and text. -->
+        <section class="container" id="projects">
+            <div class="work-header">
+                <h2>My WordPress Work</h2>
+                <a class="btn" href="#project-grid">View My Project →</a>
+            </div>
+
+            <div class="project-grid" id="project-grid">
+
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <img src="FB_IMG_1760009224222.jpg" alt="Smartwatch store products page with search and sale items"
+                        width="1132" height="853" loading="lazy" />
+                    <h3>Smartwatch Store - Products</h3>
+                    <p>Products page with live search, categories and a sale section. WordPress · WooCommerce</p>
+                    <button class="btn btn-small" type="button" data-open>View Project →</button>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <img src="FB_IMG_1760009234739.jpg" alt="Smartwatch store home page with sale banner" width="973"
+                        height="839" loading="lazy" />
+                    <h3>Smartwatch Store - Home</h3>
+                    <p>Home page with a big sale banner, featured watches and earbuds. WordPress · WooCommerce</p>
+                    <button class="btn btn-small" type="button" data-open>View Project →</button>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <img src="FB_IMG_1760009243278.jpg" alt="Gadgets store grid of latest and featured products"
+                        width="1265" height="856" loading="lazy" />
+                    <h3>Gadgets Store</h3>
+                    <p>Grid of latest and featured gadgets with prices and add to cart buttons. WordPress · WooCommerce
+                    </p>
+                    <button class="btn btn-small" type="button" data-open>View Project →</button>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card">
+                    <img src="FB_IMG_1760009230855.jpg" alt="Tech landing page with iPad Pro hero section" width="978"
+                        height="861" loading="lazy" />
+                    <h3>Tech Landing Page</h3>
+                    <p>Landing page with a product hero, offer highlights and content blocks. WordPress</p>
+                    <button class="btn btn-small" type="button" data-open>View Project →</button>
+                </article>
+
+                <!-- Project 5
+                     NOTE: you only have 4 different screenshots, so this card uses a
+                     zoomed crop of the first one (smartwatch-sale-section.jpg).
+                     Replace the src with a new screenshot whenever you have one. -->
+                <article class="project-card">
+                    <img src="smartwatch-sale-section.jpg"
+                        alt="Smartwatch store categories and sale section with discounted watches" width="660"
+                        height="495" loading="lazy" />
+                    <h3>Smartwatch Store - Sale</h3>
+                    <p>Sale section with discount badges, old and new prices and add to cart. WordPress · WooCommerce
+                    </p>
+                    <button class="btn btn-small" type="button" data-open>View Project →</button>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===================== SHORT ABOUT ===================== -->
+        <section class="short-about container">
+            <h3>Short About Taser</h3>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam,
+                asperiores eos fugit nam velit assumenda quibusdam illo consectetur
+                aut nobis eveniet? Ut aperiam itaque non maxime. Quod officia saepe
+                in. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Voluptates atque fugit praesentium earum similique iste debitis
+                recusandae eius expedita! Adipisci ea qui eligendi impedit autem!
+                Similique iusto assumenda veritatis tenetur.
+            </p>
+            <a class="btn" href="about-us.html">More About Me →</a>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <!-- Blue call-to-action band -->
+        <section class="cta-band">
+            <h2>Let's build something great.</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nam nobis
+                accusantium iste commodi distinctio! Tempora incidunt rem temporibus
+                neque reprehenderit dolore velit omnis atque eius? Ab voluptatum nisi
+                quia?
+            </p>
+            <a class="btn" href="contact-us.html">Get In Touch</a>
+        </section>
+
+        <nav aria-label="Footer">
+            <ul class="footer-nav">
+                <li class="footer-brand">
+                    <h2>Muhammad Zain</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur.</p>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a class="btn" href="contact-us.html">Lets Talk</a></li>
+            </ul>
+        </nav>
+
+        <hr class="footer-line" />
+
+        <div class="footer-bottom">
+            <!-- Copyright icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fafafa"
+                aria-hidden="true">
+                <path
+                    d="M400-320h160q17 0 28.5-11.5T600-360v-80h-80v40h-80v-160h80v40h80v-80q0-17-11.5-28.5T560-640H400q-17 0-28.5 11.5T360-600v240q0 17 11.5 28.5T400-320Zm80 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+            </svg>
+            <!-- script.js fills in the current year automatically -->
+            <p><span id="year">2026</span> Muhammad Zain. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

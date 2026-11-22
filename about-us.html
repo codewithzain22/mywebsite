@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- Makes the page responsive on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Muhammad Zain - my story, experience and education as a web developer." />
+  <title>About Us</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Same shared stylesheet and script as the other pages -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body data-page="about">
+
+  <!-- ===================== HEADER / NAVIGATION ===================== -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main">
+      <a class="brand" href="index.html">Code With Zain</a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"
+        aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="about-us.html" data-page="about">About Us</a></li>
+        <li><a href="contact-us.html" data-page="contact">Contact Us</a></li>
+        <li><a class="btn" href="contact-us.html">Lets Talk →</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero about-hero container">
+      <div class="hero-content">
+        <p class="eyebrow">About Me →</p>
+        <h1>
+          Get to know me better, my journey, and what drives me in the world
+          of web development.
+        </h1>
+        <p>
+          Muhammad Zain I'm possionate digital creater and a problem solver,
+          dedicated to crafting meaningful web experiences.My Journey in web
+          development is a testament to my commitment to continuous learning
+          and growth
+        </p>
+        <a class="btn" href="contact-us.html">Let's Connect →</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="Gemini_Generated_Image_i13khei13khei13k_transcpr.jpg" alt="Portrait of Muhammad Zain" width="864"
+          height="1184" />
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ===================== MY STORY ===================== -->
+      <section class="story">
+        <h2>My Story</h2>
+        <hr class="title-rule" />
+        <p>
+          My journey in web development started with a simple curiosity about how websites work. Over time, this
+          curiosity evolved into a passion for creating digital experiences that are both functional and
+          aesthetically pleasing. I've had the privilege of working on various projects, each teaching me something
+          new and helping me grow as a developer.My approach to web development is rooted in a desire to solve
+          problems and create solutions that make a difference. I believe that technology has the power to transform
+          lives, and I strive to harness that power in every project I undertake. Whether it's building a responsive
+          website, developing a complex web application, or optimizing user experience, I am committed to delivering
+          high-quality work that meets the needs of users and clients alike.
+        </p>
+      </section>
+
+      <!-- ===================== QUOTE BOX ===================== -->
+      <section class="panel">
+        <h2>Every pixel is an opportunity to tell a story and connect with people on a deeper level.</h2>
+        <p>
+          In my work, I strive to create designs that not only look great but also communicate a message and evoke
+          an emotion. I believe that the best web experiences are those that seamlessly blend form and function,
+          creating a harmonious relationship between the user and the content.My goal is to continue growing as a
+          web developer, learning new technologies, and pushing the boundaries of what's possible in the digital
+          space. I am excited about the future of web development and look forward to contributing to this
+          ever-evolving field.
+        </p>
+      </section>
+
+      <!-- ===================== EXPERIENCE + EDUCATION (side by side on desktop) ===================== -->
+      <div class="panel-row">
+        <section class="panel">
+          <h3>My Experience</h3>
+          <hr class="title-rule" />
+          <p>
+            I have had the opportunity to work with a variety of clients and projects, each providing unique
+            challenges and learning experiences. My experience spans across different industries, allowing me to
+            adapt and deliver solutions that meet the specific needs of each client.
+          </p>
+        </section>
+
+        <section class="panel">
+          <h3>My Education</h3>
+          <hr class="title-rule" />
+          <p>
+            I have pursued formal education in web development, complemented by continuous self-learning and
+            professional development. This combination of structured learning and hands-on experience has equipped
+            me with a solid foundation in web technologies and best practices.
+          </p>
+        </section>
+      </div>
+
+      <!-- ===================== VALUES (3 cards) ===================== -->
+      <section class="panel">
+        <div class="values-grid">
+
+          <article class="value-card">
+            <img src="genetic-data-svgrepo-com.svg" alt="" width="60" height="60" />
+            <h3>Clean Design</h3>
+            <p>
+              I believe in integrity, creativity, and collaboration. These values guide my work and interactions
+              with clients and colleagues, ensuring that I deliver solutions that are not only effective but also
+              ethical and innovative.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <img src="genetic-data-svgrepo-com.svg" alt="" width="60" height="60" />
+            <h3>Clean Design</h3>
+            <p>
+              I believe in integrity, creativity, and collaboration. These values guide my work and interactions
+              with clients and colleagues, ensuring that I deliver solutions that are not only effective but also
+              ethical and innovative.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <img src="genetic-data-svgrepo-com.svg" alt="" width="60" height="60" />
+            <h3>Clean Design</h3>
+            <p>
+              I believe in integrity, creativity, and collaboration. These values guide my work and interactions
+              with clients and colleagues, ensuring that I deliver solutions that are not only effective but also
+              ethical and innovative.
+            </p>
+          </article>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================== STATS BAND =====================
+         script.js counts each number up from 0 when it scrolls into view.
+         data-target = the number to count to, data-suffix = what to add after it. -->
+    <section class="stats" aria-label="Quick facts">
+      <div>
+        <p class="stat-number" data-target="2" data-suffix="+">2+</p>
+        <h3>Year Experience</h3>
+      </div>
+      <div>
+        <p class="stat-number" data-target="5" data-suffix="+">5+</p>
+        <h3>Happy Client</h3>
+      </div>
+      <div>
+        <p class="stat-number" data-target="5" data-suffix="+">5+</p>
+        <h3>Projects</h3>
+      </div>
+      <div>
+        <p class="stat-number" data-target="2" data-suffix="+">2+</p>
+        <h3>Technologies</h3>
+      </div>
+    </section>
+
+    <!-- ===================== LET'S WORK TOGETHER ===================== -->
+    <section class="touch-me">
+      <h2>Let's Work Together</h2>
+      <p>Lets have some converstaion</p>
+      <a class="btn" href="contact-us.html">Get in touch</a>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <nav aria-label="Footer">
+      <ul class="footer-nav">
+        <li class="footer-brand">
+          <h2>Muhammad Zain</h2>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+        <li><a class="btn" href="contact-us.html">Lets Talk</a></li>
+      </ul>
+    </nav>
+
+    <hr class="footer-line" />
+
+    <div class="footer-bottom">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fafafa"
+        aria-hidden="true">
+        <path
+          d="M400-320h160q17 0 28.5-11.5T600-360v-80h-80v40h-80v-160h80v40h80v-80q0-17-11.5-28.5T560-640H400q-17 0-28.5 11.5T360-600v240q0 17 11.5 28.5T400-320Zm80 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+      </svg>
+      <p><span id="year">2026</span> Muhammad Zain. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

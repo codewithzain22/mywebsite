@@ -1,0 +1,946 @@
+/* =============================================================
+   style.css  -  ONE stylesheet shared by all 3 pages
+   (index.html, about-us.html, contact-us.html)
+
+   The colour scheme is exactly the same as your original site.
+   All colours live in the :root block below, so if you ever want
+   to change a colour you only change it in ONE place.
+
+   Sections in this file:
+     1. Colour + size variables
+     2. Reset and base styles
+     3. Buttons
+     4. Header and navigation (with mobile menu)
+     5. Home page
+     6. About page
+     7. Contact page
+     8. Footer
+     9. Lightbox (project image preview, built by script.js)
+    10. Accessibility helpers
+   ============================================================= */
+
+
+/* -------------------------------------------------------------
+   1. VARIABLES  (your original colours)
+   Use them anywhere with var(--name)
+   ------------------------------------------------------------- */
+:root {
+  --bg: #0b1120;            /* page background */
+  --text: #f1f5f9;          /* main text */
+  --muted: #94a3b8;         /* paragraphs / softer text */
+  --accent: #3596f1;        /* blue: skills, numbers, underlines */
+  --accent-light: #79b1ff;  /* button background */
+  --sky: #38bdf8;           /* small labels + about page lines */
+  --border: #293548;        /* card borders + stats band */
+  --panel: #182f55;         /* "Let's build something great" band */
+  --error: #f87171;         /* only used for form error messages */
+
+  --radius: 12px;           /* rounded corners for cards */
+  --max-width: 1100px;      /* widest the content is allowed to get */
+}
+
+
+/* -------------------------------------------------------------
+   2. RESET AND BASE
+   ------------------------------------------------------------- */
+
+/* border-box = padding and border are included in an element's width.
+   This makes sizing much easier and prevents sideways scrolling. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling when clicking links like href="#projects" */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Bricolage Grotesque", sans-serif;
+  line-height: 1.5;
+}
+
+/* Images never get wider than their box -> this is key for responsive.
+   height:auto keeps the correct shape. Without it, the width/height
+   attributes written in the HTML would stretch the images. */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+/* .container keeps content centred and not too wide.
+   min() = "100% of the screen minus 2rem of side space, but never
+   more than 1100px". Works on phones and big monitors. */
+.container {
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+}
+
+/* A simple horizontal line */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+
+/* -------------------------------------------------------------
+   3. BUTTONS
+   .btn works on both <a> and <button> tags, so every button on the
+   site looks the same.
+   ------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--accent-light);
+  color: var(--bg);
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+}
+
+/* Smaller version used inside the project cards */
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+
+/* -------------------------------------------------------------
+   4. HEADER + NAVIGATION
+   ------------------------------------------------------------- */
+
+/* sticky = the header stays at the top while you scroll */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 17, 32, 0.92);   /* --bg with a little see-through */
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+/* script.js adds the class "scrolled" once you scroll down a bit */
+.site-header.scrolled {
+  border-bottom-color: var(--border);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+/* Normal nav links (not the "Lets Talk" button) */
+.nav-menu a:not(.btn) {
+  position: relative;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* The blue underline that grows on hover (your original effect).
+   It starts squashed to nothing: scaleX(0) */
+.nav-menu a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Underline shows on hover AND on the page you are currently on
+   (script.js adds the class "active" to the current page's link) */
+.nav-menu a:not(.btn):hover::after,
+.nav-menu a.active::after {
+  transform: scaleX(1);
+}
+
+/* The 3-line "hamburger" button. Hidden on desktop. */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* When the menu is open (aria-expanded="true") the 3 lines turn into an X */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- PHONES / SMALL TABLETS: menu becomes a dropdown ---- */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;                 /* hidden until the button is tapped */
+    position: absolute;
+    top: 100%;                     /* right under the header */
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* script.js adds the class "open" when the button is tapped */
+  .nav-menu.open {
+    display: flex;
+  }
+}
+
+
+/* -------------------------------------------------------------
+   5. HOME PAGE  (index.html)
+   ------------------------------------------------------------- */
+
+/* ---- Hero: text on the left, photo on the right ---- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;   /* two columns */
+  align-items: center;
+  gap: 3rem;
+  padding-block: 4rem;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: var(--sky);
+}
+
+.hero-content h1 {
+  margin-bottom: 20px;
+  /* clamp(min, ideal, max): the text grows with the screen but
+     never gets smaller than 2rem or bigger than 3rem */
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+}
+
+.hero-content p {
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;                 /* square photo */
+  object-fit: cover;                   /* crop instead of stretching */
+  object-position: center 20%;         /* keep the face in view */
+  margin-inline: auto;
+  border-radius: 8px;
+}
+
+/* ---- Skills row ---- */
+.skills {
+  display: flex;
+  flex-wrap: wrap;               /* wraps onto 2 lines on small screens */
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: 2.5rem;
+  list-style: none;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---- "My WordPress Work" heading row ---- */
+.work-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 2.5rem 1.5rem;
+}
+
+.work-header h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* ---- Project cards grid ----
+   Phone: 1 column | Tablet: 2 columns | Desktop: 3 columns.
+   With 5 cards on desktop the last 2 are centred under the first 3. */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  transition: border-color 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;          /* show the top of each screenshot */
+  border-radius: 8px;
+  cursor: zoom-in;               /* tells people the image can be opened */
+}
+
+.project-card h3 {
+  padding: 14px 10px 6px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #f8f8f8;
+}
+
+.project-card p {
+  flex-grow: 1;                  /* pushes the button to the bottom */
+  padding: 0 10px 12px;
+  font-size: 13px;
+  letter-spacing: 0.03rem;
+  color: var(--muted);
+}
+
+/* Tablet: 2 columns. A lonely last card is centred. */
+@media (min-width: 640px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.75rem);
+  }
+}
+
+/* Desktop: 6 invisible columns, each card spans 2 -> 3 cards per row.
+   Card 4 starts at column 2 and card 5 at column 4, which centres them. */
+@media (min-width: 1000px) {
+  .project-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .project-card,
+  .project-card:last-child:nth-child(odd) {
+    grid-column: span 2;
+    width: auto;
+    justify-self: stretch;
+  }
+
+  .project-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .project-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+
+/* ---- Cards slide in as you scroll (class added by script.js) ----
+   Only applied when the user has NOT asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .project-card.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.2s ease;
+  }
+
+  .project-card.reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- Short "about me" block ---- */
+.short-about {
+  padding-block: 1rem 4rem;
+}
+
+.short-about h3 {
+  padding-block: 10px;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #f8f8f8;
+}
+
+.short-about p {
+  max-width: 75ch;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.short-about .btn {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* ---- Blue band: "Let's build something great" ---- */
+.cta-band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 1rem;
+  background-color: var(--panel);
+  text-align: center;
+}
+
+.cta-band h2 {
+  padding-block: 10px;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #f8f8f8;
+}
+
+.cta-band p {
+  max-width: 60ch;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.cta-band .btn {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* ---- Hero: stack into one column on tablets and phones ---- */
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-block: 2.5rem;
+  }
+
+  /* Hide the forced line breaks in the heading on small screens
+     so the text wraps naturally */
+  .desktop-br {
+    display: none;
+  }
+}
+
+
+/* -------------------------------------------------------------
+   6. ABOUT PAGE  (about-us.html)
+   ------------------------------------------------------------- */
+
+/* The "hero" on this page reuses the .hero styles above.
+   Its heading is a bit smaller. */
+.about-hero .hero-content h1 {
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+}
+
+.about-hero .hero-image img {
+  object-position: center 30%;
+}
+
+/* "My Story" section */
+.story {
+  padding-block: 2.5rem;
+  text-align: center;
+}
+
+.story h2 {
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  line-height: 1.2;
+}
+
+/* The light-blue line under headings */
+.title-rule {
+  width: min(70%, 600px);
+  margin: 20px auto;
+  border-top: 2px solid var(--sky);
+}
+
+.story p {
+  max-width: 75ch;
+  margin-inline: auto;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* Bordered boxes (quote, experience, education, values) */
+.panel {
+  margin-block: 1.25rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.panel h2,
+.panel h3 {
+  max-width: 60ch;
+  margin: 0 auto 16px;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.panel p {
+  max-width: 65ch;
+  margin-inline: auto;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* Experience + Education sit side by side on desktop */
+.panel-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.panel-row .panel {
+  margin-block: 0;
+}
+
+@media (min-width: 768px) {
+  .panel-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Justified text only where there is enough room for it */
+  .story p,
+  .panel p {
+    text-align: justify;
+  }
+}
+
+/* The three small "values" cards inside one big box */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.value-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.value-card img {
+  width: 60px;
+  height: 60px;
+  margin: 20px;
+}
+
+.value-card h3 {
+  margin: 8px 0;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.value-card p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Stats band: 2+, 5+, 5+, 2+ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);   /* 2 per row on phones */
+  gap: 2rem 1rem;
+  padding: 50px 1rem;
+  background-color: var(--border);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr); /* 4 in a row on bigger screens */
+  }
+}
+
+.stat-number {
+  margin-bottom: 8px;
+  font-size: 36px;
+  color: var(--accent);
+}
+
+.stats h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* "Let's Work Together" block */
+.touch-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.touch-me h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+}
+
+.touch-me p {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.touch-me .btn {
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+
+/* -------------------------------------------------------------
+   7. CONTACT PAGE  (contact-us.html)
+   ------------------------------------------------------------- */
+.contact {
+  padding-block: 3rem 4rem;
+}
+
+.contact-intro {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.contact-intro h1 {
+  margin-bottom: 12px;
+  font-size: clamp(1.8rem, 5vw, 2.75rem);
+  line-height: 1.2;
+}
+
+.contact-intro p {
+  color: var(--muted);
+}
+
+.contact-form {
+  max-width: 640px;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+.field textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* script.js adds aria-invalid="true" to a field that failed validation */
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.field-error {
+  display: block;
+  min-height: 1.2em;            /* reserves space so the form doesn't jump */
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--error);
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--sky);
+}
+
+
+/* -------------------------------------------------------------
+   8. FOOTER  (same on every page)
+   ------------------------------------------------------------- */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;                 /* wraps on small screens */
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  margin: 10px;
+  padding-top: 1.5rem;
+  list-style: none;
+}
+
+.footer-brand h2 {
+  padding-block: 10px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #f8f8f8;
+}
+
+.footer-brand p {
+  font-size: 12px;
+  letter-spacing: 0.08rem;
+  color: var(--muted);
+}
+
+.footer-nav a {
+  position: relative;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* Same growing underline as the header links */
+.footer-nav a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.footer-nav a:not(.btn):hover::after {
+  transform: scaleX(1);
+}
+
+.footer-line {
+  width: 80%;
+  height: 1px;
+  margin: 20px auto;
+  border: none;
+  background-color: var(--muted);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 1rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  letter-spacing: 0.08rem;
+  color: var(--muted);
+}
+
+/* Footer links stack in the centre on phones */
+@media (max-width: 600px) {
+  .footer-nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-line {
+    width: 90%;
+  }
+}
+
+
+/* -------------------------------------------------------------
+   9. LIGHTBOX  (the pop-up image viewer)
+   script.js creates this HTML when the page loads; here we only
+   style it.
+   ------------------------------------------------------------- */
+.lightbox {
+  position: fixed;
+  inset: 0;                         /* covers the whole screen */
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(11, 17, 32, 0.97);
+}
+
+/* The "hidden" attribute must win over display:flex above */
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox figure {
+  max-width: min(900px, 100%);
+  text-align: center;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 75vh;
+  margin-inline: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.lightbox-close,
+.lightbox-nav {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  background: var(--accent);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* On phones the arrows sit at the bottom so the image gets more room */
+@media (max-width: 640px) {
+  .lightbox {
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .lightbox figure {
+    order: -1;
+    width: 100%;
+  }
+}
+
+/* Stops the page behind the lightbox from scrolling */
+body.no-scroll {
+  overflow: hidden;
+}
+
+
+/* -------------------------------------------------------------
+   10. ACCESSIBILITY
+   ------------------------------------------------------------- */
+
+/* A visible outline when navigating with the keyboard (Tab key) */
+:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 2px;
+}
+
+/* If someone's device is set to "reduce motion", turn animations off */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
